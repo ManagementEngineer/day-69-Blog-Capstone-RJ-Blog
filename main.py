@@ -1,5 +1,5 @@
 from functools import wraps
-
+import os
 from flask import Flask, render_template, redirect, url_for, flash, request
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
@@ -15,7 +15,7 @@ from sqlalchemy import Table, Column, Integer, ForeignKey
 from flask_gravatar import Gravatar
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6bsada'
+app.config['SECRET_KEY'] = os.environ["FLASK_SECRET_KEY"]
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
